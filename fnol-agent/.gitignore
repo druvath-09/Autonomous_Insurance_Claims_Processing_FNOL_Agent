@@ -1,0 +1,27 @@
+# Virtual environments
+.env
+.venv/
+env/
+venv/
+ENV/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE and Editor configs
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Temporary and generated files
+ocr_pages/
+test_text_fallback.txt
+test_investigation.pdf
+test_specialist_injury.pdf
+test_fast_track.pdf
+test_standard_processing.pdf
+test_perfect_all_fields.pdf

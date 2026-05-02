@@ -83,13 +83,16 @@ async def process_claim(file: UploadFile = File(...)):
 # ────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
+    import sys
     import json
 
-    # Test with a local sample PDF
-    test_file = "sample.pdf"
-    if os.path.exists(test_file):
-        result = process_pdf(test_file)
-        print(json.dumps(result, indent=2, ensure_ascii=False))
-    else:
-        print(f"[ERROR] Test file '{test_file}' not found")
-        print("Start the API server instead: uvicorn main:app --reload")
+    if len(sys.argv) < 2:
+        print("❌ Please provide PDF file path")
+        print("Usage: python main.py sample.pdf")
+        exit()
+
+    pdf_path = sys.argv[1]
+
+    result = process_pdf(pdf_path)
+
+    print(json.dumps(result, indent=2))
