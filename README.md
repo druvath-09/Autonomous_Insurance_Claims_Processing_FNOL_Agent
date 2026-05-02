@@ -73,11 +73,39 @@ curl -X POST http://127.0.0.1:8000/process-claim/ \
   -F "file=@Sample1.pdf" | python3 -m json.tool
 ```
 
-### Quick CLI Test (no server needed)
+### Quick CLI Test (optional, for local testing)
+
+Use the CLI only if you want a fast local check without opening the API docs.
 
 ```bash
-python main.py
+python main.py Sample1.pdf
 ```
+
+## 🌐 API Documentation (FastAPI Swagger UI)
+
+Swagger UI: http://127.0.0.1:8000/docs
+
+### How to test the API in Swagger UI
+
+1. Click `POST /process-claim/`
+2. Click `Try it out`
+3. Upload a sample PDF such as `Sample1.pdf`
+4. Click `Execute`
+5. Review the JSON response
+
+### Example JSON Response
+
+```json
+{
+  "recommendedRoute": "Fast-track",
+  "confidence": "High",
+  "extractedFields": {
+    "policy_number": "POL123456"
+  }
+}
+```
+
+💡 Recommended: Use Swagger UI (/docs) for easiest testing.
 
 ### Run the Test Suite
 
